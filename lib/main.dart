@@ -1,10 +1,12 @@
 import 'package:cafe_calculator/src/cafe_calculator.dart';
+import 'package:cafe_calculator/src/provider/calculator_data.dart';
 import 'package:flutter/material.dart';
-import 'dart:ui' as ui;
+import 'package:provider/provider.dart';
 
 void main() {
-
-  runApp(const MyApp());
+  runApp(MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => CalculatorData())],
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -22,4 +24,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
